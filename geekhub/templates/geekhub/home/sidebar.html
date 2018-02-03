@@ -1,0 +1,26 @@
+<aside class="col-4 bg-light shadow">
+    <h3 class="sidebar-title text-center border-bottom border-info">News</h3>
+    <ul class="list-unstyled">
+        {% for article in news %}
+        <li class = 'border-bottom pb-5 pt-3'>
+            <article>
+                <header>
+                    <time>
+                        {{article.time}}
+                    </time>
+                    <h4>
+                        {{article.title}}
+                    </h4>
+                </header>
+            </article>
+            <p>
+                {{article.text}}
+            </p>
+            <div class="text-center">
+                <a href={{article.source_url}} class = "btn btn-info ">Read more</a>
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+</aside>

@@ -1,0 +1,34 @@
+<header class="main-header bg-light bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark  ">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                {% load static %}
+                <img src="{% static 'geekhub/logo-light.png' %} " alt="GeekHub">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav d-flex justify-content-between w-100">
+                    {% with url_name=request.resolver_match.url_name %}
+                    <div>
+                        <li class="nav-item d-inline-block">
+                            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home
+                                <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item d-inline-block">
+                            <a class="nav-link {% if url_name == 'courses' %}active{% endif %}" href="{% url 'courses' %}">Courses</a>
+                        </li>
+                    </div>
+                    <li class="nav-item ">
+                        <a class="nav-link {% if url_name == 'newstudent' %}active{% endif %}"
+                           href="{% url 'newstudent' %}">Join As</a>
+                    </li>
+                    {% endwith %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

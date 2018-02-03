@@ -1,0 +1,16 @@
+{% extends 'geekhub/index.html' %}
+
+{% block content %}
+<div class="container d-flex  justify-content-center p-5">
+    <h1>{{ title }}</h1>
+    <form method="POST" class="post-form p-4 border border-info w-50">{% csrf_token %}
+        {{ form.as_p }}
+        <select name="course" class=" mb-4 w-100">
+        {% for course in courses %}
+            <option value="{{course.id}}" name = "{{course.id}}">{{course.name}}</option>
+        {% endfor %}
+        </select>
+        <button type="submit" class="save btn btn-default ">Save</button>
+    </form>
+</div>
+{% endblock %}
